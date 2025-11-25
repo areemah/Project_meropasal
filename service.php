@@ -2,10 +2,10 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>View FAQs</h1>
+		<h1>View Services</h1>
 	</div>
 	<div class="content-header-right">
-		<a href="faq-add.php" class="btn btn-primary btn-sm">Add FAQ</a>
+		<a href="service-add.php" class="btn btn-primary btn-sm">Add Service</a>
 	</div>
 </section>
 
@@ -18,14 +18,16 @@
 						<thead>
 							<tr>
 								<th width="30">#</th>
+								<th>Photo</th>
 								<th width="100">Title</th>
+								<th>Content</th>
 								<th width="80">Action</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php
 							$i=0;
-							$statement = $pdo->prepare("SELECT * FROM tbl_faq");
+							$statement = $pdo->prepare("SELECT * FROM tbl_service");
 							$statement->execute();
 							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 							foreach ($result as $row) {
@@ -33,10 +35,12 @@
 								?>
 								<tr>
 									<td><?php echo $i; ?></td>
-									<td><?php echo $row['faq_title']; ?></td>
+									<td style="width:130px;"><img src="../assets/uploads/<?php echo $row['photo']; ?>" alt="<?php echo $row['title']; ?>" style="width:120px;"></td>
+									<td><?php echo $row['title']; ?></td>
+									<td><?php echo $row['content']; ?></td>
 									<td>										
-										<a href="faq-edit.php?id=<?php echo $row['faq_id']; ?>" class="btn btn-primary btn-xs">Edit</a>
-										<a href="#" class="btn btn-danger btn-xs" data-href="faq-delete.php?id=<?php echo $row['faq_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>  
+										<a href="service-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-xs">Edit</a>
+										<a href="#" class="btn btn-danger btn-xs" data-href="service-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>  
 									</td>
 								</tr>
 								<?php
