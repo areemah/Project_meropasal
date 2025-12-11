@@ -23,7 +23,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as $row) {
     // Populate billing fields - use registration data if billing fields are empty
     $_SESSION['customer']['cust_b_name'] = !empty($row['cust_b_name']) ? $row['cust_b_name'] : $row['cust_name'];
-    $_SESSION['customer']['cust_b_cname'] = $row['cust_b_cname'];
+    $_SESSION['customer']['cust_b_cname'] = !empty($row['cust_b_cname']) ? $row['cust_b_cname'] : $row['cust_cname'];
     $_SESSION['customer']['cust_b_phone'] = !empty($row['cust_b_phone']) ? $row['cust_b_phone'] : $row['cust_phone'];
     $_SESSION['customer']['cust_b_country'] = !empty($row['cust_b_country']) ? $row['cust_b_country'] : $row['cust_country'];
     $_SESSION['customer']['cust_b_address'] = !empty($row['cust_b_address']) ? $row['cust_b_address'] : $row['cust_address'];
@@ -31,7 +31,7 @@ foreach ($result as $row) {
     
     // Populate shipping fields - use registration data if shipping fields are empty
     $_SESSION['customer']['cust_s_name'] = !empty($row['cust_s_name']) ? $row['cust_s_name'] : $row['cust_name'];
-    $_SESSION['customer']['cust_s_cname'] = $row['cust_s_cname'];
+    $_SESSION['customer']['cust_s_cname'] = !empty($row['cust_s_cname']) ? $row['cust_s_cname'] : $row['cust_cname'];
     $_SESSION['customer']['cust_s_phone'] = !empty($row['cust_s_phone']) ? $row['cust_s_phone'] : $row['cust_phone'];
     $_SESSION['customer']['cust_s_country'] = !empty($row['cust_s_country']) ? $row['cust_s_country'] : $row['cust_country'];
     $_SESSION['customer']['cust_s_address'] = !empty($row['cust_s_address']) ? $row['cust_s_address'] : $row['cust_address'];
