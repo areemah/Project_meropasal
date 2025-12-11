@@ -84,30 +84,24 @@ if (isset($_POST['form1'])) {
                                         cust_country,
                                         cust_address,
                                         cust_city,
-                                        cust_state,
-                                        cust_zip,
                                         cust_b_name,
                                         cust_b_cname,
                                         cust_b_phone,
                                         cust_b_country,
                                         cust_b_address,
                                         cust_b_city,
-                                        cust_b_state,
-                                        cust_b_zip,
                                         cust_s_name,
                                         cust_s_cname,
                                         cust_s_phone,
                                         cust_s_country,
                                         cust_s_address,
                                         cust_s_city,
-                                        cust_s_state,
-                                        cust_s_zip,
                                         cust_password,
                                         cust_token,
                                         cust_datetime,
                                         cust_timestamp,
                                         cust_status
-                                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $statement->execute(array(
                                         strip_tags($_POST['cust_name']),
                                         strip_tags($_POST['cust_cname']),
@@ -116,12 +110,6 @@ if (isset($_POST['form1'])) {
                                         strip_tags($_POST['cust_country']),
                                         strip_tags($_POST['cust_address']),
                                         strip_tags($_POST['cust_city']),
-                                        strip_tags($_POST['cust_state']),
-                                        strip_tags($_POST['cust_zip']),
-                                        '',
-                                        '',
-                                        '',
-                                        '',
                                         '',
                                         '',
                                         '',
@@ -166,9 +154,7 @@ if (isset($_POST['form1'])) {
         unset($_POST['cust_phone']);
         unset($_POST['cust_address']);
         unset($_POST['cust_city']);
-        unset($_POST['cust_state']);
-        unset($_POST['cust_zip']);
-
+        
         $success_message = LANG_VALUE_152;
     }
 }
